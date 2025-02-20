@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Plus } from 'lucide-react'
-import '@/styles/globals.css'
+import '@/app/globals.css'
 
 
 export default function BookTracker() {
