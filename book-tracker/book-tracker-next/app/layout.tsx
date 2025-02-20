@@ -1,16 +1,28 @@
-import '../styles/globals.css';  // Import global styles here
+import type { Metadata } from "next"
+import { Inter } from 'next/font/google'
+import "./globals.css"
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div>
-      <header>
-        <h1>Book Tracker</h1>
-        {/* Other global header content */}
-      </header>
-      <main>{children}</main>
-      <footer>
-        <p>© 2025 Book Tracker</p>
-      </footer>
-    </div>
-  );
+// Modify font loading to be more resilient
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap', // Ensures text remains visible during font load
+  variable: '--font-inter' // Allows us to use it as a CSS variable
+})
+
+export const metadata: Metadata = {
+  title: "Book Tracker",
+  description: "Track your reading progress",
 }
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${inter.variable} font-sans`}>{children}</body>
+    </html>
+  )
+}
+
